@@ -13,45 +13,42 @@
 #ifndef VISUALIZER_H
 # define VISUALIZER_H
 
-# include "mlx.h"
 # include "../libft/libft.h"
 # include "limits.h"
 # include "math.h"
 # include <fcntl.h>
+# include <SDL.h>
+# include <SDL_image.h>
+# include <SDL_ttf.h>
 
-typedef struct	s_map
+typedef struct		s_map
 {
-	char		**map;
-	char 		*p1;
-	char 		*p2;
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*image;
-	int 		*data;
-	int			size_l;
-	int			bpp;
-	int			endian;
-	double		k;
-	int 		ma_x;
-	int 		ma_y;
-	double		high_save;
-	double		high;
-	int			y_s;
-	int			x_s;
-	int			y_pad;
-	int			x_pad;
-	int			x_mouse;
-	int			y_mouse;
-	int			press;
-	int			iso;
-	int			x1;
-	int			x2;
-	int			y1;
-	int			y2;
-	int			win_x;
-	int			win_y;
-	int			col;
-	int			col_switch;
-}				t_map;
+	TTF_Font		*font[2];
+	SDL_Color		color[5];
+	SDL_Rect		rect[6];
+	SDL_Surface		*message[6];
+	const Uint8		*keystate;
+	char			**map;
+	char			*p1;
+	char			*p2;
+	char			*score1;
+	char			*score2;
+	int				p1_score;
+	int				p2_score;
+	int				is_running;
+	int				k;
+	int				ma_x;
+	int				ma_y;
+	int				x_pad;
+	int				win_x;
+	int				win_y;
+	int				col;
+}					t_map;
+
+void				clear_by_color(SDL_Surface *surface, unsigned int color);
+void				win(t_map *map, SDL_Surface *surface, SDL_Window *window);
+int					loop_key_hook(t_map *map,
+		SDL_Surface *surface, SDL_Window *window);
+int					render2d(SDL_Surface *surface, t_map *map);
 
 #endif

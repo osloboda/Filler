@@ -18,7 +18,7 @@ INCDIR = includes/
 
 SRC = filler.c solver.c additional_f.c
 
-VSRC = main.c
+VSRC = main.c ad_visual.c render_visual.c
 
 OBJDIR = objects
 
