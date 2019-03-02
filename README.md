@@ -1,6 +1,6 @@
 # Filler_42_osloboda
 
-Projets filler with graphic interface
+Projets filler with graphic visualizer
 
 # Subject
 
